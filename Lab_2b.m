@@ -10,7 +10,8 @@ Fs = 24/(2*pi);
 Ts = 1/Fs;
 Fp = 3*Ts;
 
-[N,Wn,beta,ftype] = kaiserord([wp ws],[1 0],[db2mag(-Ap) db2mag(-Ast)],Fs);
+dev = [(10^(Ap/20)-1)/(10^(Ap/20)+1) 10^(-Ast/20)];
+[N,Wn,beta,ftype] = kaiserord([wp ws],[1 0],dev,Fs);
 alpha = (N-1)/2;
 
 n = 0:1:N-1;

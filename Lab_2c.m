@@ -8,7 +8,8 @@ ws = 6/(2*pi);
 
 Fs = 24/(2*pi);
 
-[n,fo,ao,w] = firpmord([wp ws],[1 0],[db2mag(-Ap) db2mag(-Ast)],Fs);
+dev = [(10^(Ap/20)-1)/(10^(Ap/20)+1) 10^(-Ast/20)];
+[n,fo,ao,w] = firpmord([wp ws],[1 0],dev,Fs);
 b = firpm(n,fo,ao,w);
 [h,w] = freqz(b,1);
 figure(1)

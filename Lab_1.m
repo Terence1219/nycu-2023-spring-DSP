@@ -12,6 +12,7 @@ Ts = 1/Fs;
 wp1 = wp*Ts;
 ws1 = ws*Ts;
 
+%prewarp
 wp2 = 2*Fs*tan(wp1/2);
 ws2 = 2*Fs*tan(ws1/2);
 
@@ -30,11 +31,11 @@ ws2 = 2*Fs*tan(ws1/2);
 subplot(2,1,1);
 plot(W/pi,db(abs(H)));
 grid;
-xlabel('frequency(π)');
-ylabel('gain(dB)');
+xlabel('normalized frequency (π rad/sample)');
+ylabel('Mag(dB)');
 
 subplot(2,1,2);
 plot(W/pi,angle(H));
 grid;
-xlabel('frequency(π)');
+xlabel('normalized frequency (π rad/sample)');
 ylabel('rad');
